@@ -6,6 +6,16 @@ plugins {
     id 'com.palantir.docker' version '0.31.0'
     id 'com.palantir.docker-run' version '0.31.0'
     id 'jp.classmethod.aws.reboot.cloudformation' version '0.45'
+    id "com.google.cloud.tools.jib" version "3.1.4"
+}
+
+jib {
+    from {
+        image = 'azul/zulu-openjdk:17-jre'
+    }
+    to {
+        image = 'jib-test'
+    }
 }
 
 version = scmVersion.version
