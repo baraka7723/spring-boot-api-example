@@ -17,6 +17,16 @@ pipeline {
                 sh './gradlew docker'
             }
         }
+        stage('Running in Docker') {
+            steps {
+               sh './gradlew assemble docker dockerRun' 
+              }
+        }
+        stage('Stopping Docker container') {
+            steps {
+               sh './gradlew dockerStop'
+               }
+         }
         
     }
 }
